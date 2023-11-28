@@ -11,14 +11,14 @@
  */
 binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 {
+	/* allocate memory for the new node */
+	binary_tree_t *new_node = malloc(sizeof(binary_tree_t));
+
 	/* Check if parent is NULL */
 	if (parent == NULL)
 		return (NULL);
 
-	/* allocate memeory for the new node */
-	binary_tree_t *new_node = malloc(sizeof(binary_tree_t));
-
-	/* Check of memory allocation was successful */
+	/* Check if memory allocation was successful */
 	if (new_node == NULL)
 		return (NULL);
 
