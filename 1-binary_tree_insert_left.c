@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "binary_trees.h"
 
 /**
@@ -12,7 +11,7 @@
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 {
 	/* allocate memory for the new node */
-	binary_tree_t *new_node = malloc(sizeof(binary_treet_t));
+	binary_tree_t *new_node = malloc(sizeof(binary_tree_t));
 	/* check if parent is NULL */
 	if (parent == NULL)
 		return (NULL);
