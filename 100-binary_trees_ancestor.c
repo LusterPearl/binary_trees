@@ -32,14 +32,14 @@ const binary_tree_t *second)
 binary_tree_t *find_ancestor(const binary_tree_t *first,
 const binary_tree_t *second, const binary_tree_t *ancestor)
 {
+	binary_tree_t *left = find_ancestor(first, second, ancestor->left);
+	binary_tree_t *right = find_ancestor(first, second, ancestor->right);
+
 	if (!ancestor)
 		return (NULL);
 
 	if (ancestor == first || ancestor == second)
 		return ((binary_tree_t *)ancestor);
-
-	binary_tree_t *left = find_ancestor(first, second, ancestor->left);
-	binary_tree_t *right = find_ancestor(first, second, ancestor->right);
 
 	if (left && right)
 		return ((binary_tree_t *)ancestor);
