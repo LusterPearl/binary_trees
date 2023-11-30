@@ -13,5 +13,8 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 		return (NULL);
 
 	/* Use the binary_tree_sibling function to get the uncle */
-	return (binary_tree_sibling(node->parent));
+	if (node->parent->left == node)
+		return (node->parent->right);
+	else
+		return (node->parent->left);
 }
