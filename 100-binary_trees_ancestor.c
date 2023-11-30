@@ -11,38 +11,23 @@
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 const binary_tree_t *second)
 {
+	const binary_tree_t *temp, *ancestor = NULL;
+
 	if (!first || !second)
 		return (NULL);
 
-	if (first == second)
-		return ((binary_tree_t *)first);
-	return (find_ancestor(first, second, first->parent));
-}
+	while (first)
+	{
+		temp = second;
 
-/**
- * find_ancestor - Helper function to find the lowest common
- * ancestor recursively.
- * @first: A pointer to the first node.
- * @second: A pointer to the second node.
- * @ancestor: A pointer to the potential ancestor node.
- *
- * Return: A pointer to the lowest common ancestor node,
- *         or NULL if no common ancestor was found.
- */
-binary_tree_t *find_ancestor(const binary_tree_t *first,
-const binary_tree_t *second, const binary_tree_t *ancestor)
-{
-	binary_tree_t *left = find_ancestor(first, second, ancestor->left);
-	binary_tree_t *right = find_ancestor(first, second, ancestor->right);
+		while (temp)
+		{
+			if (temp == first)
+				return ((binary_tree_t *)first);
 
-	if (!ancestor)
-		return (NULL);
-
-	if (ancestor == first || ancestor == second)
-		return ((binary_tree_t *)ancestor);
-
-	if (left && right)
-		return ((binary_tree_t *)ancestor);
-
-	return (left ? left : right);
+			temp = temp->parent;
+		}
+		first = first->parent;
+	}
+	return ((binary_tree_t *)ancestor);
 }
