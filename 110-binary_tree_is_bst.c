@@ -2,16 +2,6 @@
 #include <limits.h>
 
 /**
- * is_bst_util - Helper function to check if a binary tree is a valid BST
- * @tree: Pointer to the root node of the tree to check
- * @min: Minimum value a node in the tree can take
- * @max: Maximum value a node in the tree can take
- *
- * Return: 1 if the tree is a valid BST, 0 otherwise
- */
-int is_bst_util(const binary_tree_t *tree, int min, int max);
-
-/**
  * binary_tree_is_bst - Checks if a binary tree is a valid Binary Search Tree
  * @tree: Pointer to the root node of the tree to check
  *
